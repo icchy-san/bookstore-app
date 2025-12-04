@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/icchy-san/bookstore-app/api/gen/go/github.com/icchy-san/bookstore-app/api/gen/go/bookstore/v1/v1connect"
+	"github.com/icchy-san/bookstore-app/api/gen/go/bookstore/v1/v1connect"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )

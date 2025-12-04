@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.10
 // 	protoc        (unknown)
-// source: proto/bookstore/v1/bookstore.proto
+// source: bookstore/v1/bookstore.proto
 
 package v1
 
@@ -30,7 +30,7 @@ type ListBooksRequest struct {
 
 func (x *ListBooksRequest) Reset() {
 	*x = ListBooksRequest{}
-	mi := &file_proto_bookstore_v1_bookstore_proto_msgTypes[0]
+	mi := &file_bookstore_v1_bookstore_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -42,7 +42,7 @@ func (x *ListBooksRequest) String() string {
 func (*ListBooksRequest) ProtoMessage() {}
 
 func (x *ListBooksRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_bookstore_v1_bookstore_proto_msgTypes[0]
+	mi := &file_bookstore_v1_bookstore_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -55,7 +55,7 @@ func (x *ListBooksRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBooksRequest.ProtoReflect.Descriptor instead.
 func (*ListBooksRequest) Descriptor() ([]byte, []int) {
-	return file_proto_bookstore_v1_bookstore_proto_rawDescGZIP(), []int{0}
+	return file_bookstore_v1_bookstore_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ListBooksRequest) GetShelf() string {
@@ -74,7 +74,7 @@ type ListBooksResponse struct {
 
 func (x *ListBooksResponse) Reset() {
 	*x = ListBooksResponse{}
-	mi := &file_proto_bookstore_v1_bookstore_proto_msgTypes[1]
+	mi := &file_bookstore_v1_bookstore_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -86,7 +86,7 @@ func (x *ListBooksResponse) String() string {
 func (*ListBooksResponse) ProtoMessage() {}
 
 func (x *ListBooksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_bookstore_v1_bookstore_proto_msgTypes[1]
+	mi := &file_bookstore_v1_bookstore_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -99,7 +99,7 @@ func (x *ListBooksResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBooksResponse.ProtoReflect.Descriptor instead.
 func (*ListBooksResponse) Descriptor() ([]byte, []int) {
-	return file_proto_bookstore_v1_bookstore_proto_rawDescGZIP(), []int{1}
+	return file_bookstore_v1_bookstore_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ListBooksResponse) GetBooks() []*Book {
@@ -120,7 +120,7 @@ type Book struct {
 
 func (x *Book) Reset() {
 	*x = Book{}
-	mi := &file_proto_bookstore_v1_bookstore_proto_msgTypes[2]
+	mi := &file_bookstore_v1_bookstore_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -132,7 +132,7 @@ func (x *Book) String() string {
 func (*Book) ProtoMessage() {}
 
 func (x *Book) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_bookstore_v1_bookstore_proto_msgTypes[2]
+	mi := &file_bookstore_v1_bookstore_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -145,7 +145,7 @@ func (x *Book) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Book.ProtoReflect.Descriptor instead.
 func (*Book) Descriptor() ([]byte, []int) {
-	return file_proto_bookstore_v1_bookstore_proto_rawDescGZIP(), []int{2}
+	return file_bookstore_v1_bookstore_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Book) GetId() string {
@@ -169,11 +169,11 @@ func (x *Book) GetAuthor() string {
 	return ""
 }
 
-var File_proto_bookstore_v1_bookstore_proto protoreflect.FileDescriptor
+var File_bookstore_v1_bookstore_proto protoreflect.FileDescriptor
 
-const file_proto_bookstore_v1_bookstore_proto_rawDesc = "" +
+const file_bookstore_v1_bookstore_proto_rawDesc = "" +
 	"\n" +
-	"\"proto/bookstore/v1/bookstore.proto\x12\fbookstore.v1\"(\n" +
+	"\x1cbookstore/v1/bookstore.proto\x12\fbookstore.v1\"(\n" +
 	"\x10ListBooksRequest\x12\x14\n" +
 	"\x05shelf\x18\x01 \x01(\tR\x05shelf\"=\n" +
 	"\x11ListBooksResponse\x12(\n" +
@@ -186,24 +186,24 @@ const file_proto_bookstore_v1_bookstore_proto_rawDesc = "" +
 	"\tListBooks\x12\x1e.bookstore.v1.ListBooksRequest\x1a\x1f.bookstore.v1.ListBooksResponseB<Z:github.com/icchy-san/bookstore-app/api/gen/go/bookstore/v1b\x06proto3"
 
 var (
-	file_proto_bookstore_v1_bookstore_proto_rawDescOnce sync.Once
-	file_proto_bookstore_v1_bookstore_proto_rawDescData []byte
+	file_bookstore_v1_bookstore_proto_rawDescOnce sync.Once
+	file_bookstore_v1_bookstore_proto_rawDescData []byte
 )
 
-func file_proto_bookstore_v1_bookstore_proto_rawDescGZIP() []byte {
-	file_proto_bookstore_v1_bookstore_proto_rawDescOnce.Do(func() {
-		file_proto_bookstore_v1_bookstore_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_bookstore_v1_bookstore_proto_rawDesc), len(file_proto_bookstore_v1_bookstore_proto_rawDesc)))
+func file_bookstore_v1_bookstore_proto_rawDescGZIP() []byte {
+	file_bookstore_v1_bookstore_proto_rawDescOnce.Do(func() {
+		file_bookstore_v1_bookstore_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_bookstore_v1_bookstore_proto_rawDesc), len(file_bookstore_v1_bookstore_proto_rawDesc)))
 	})
-	return file_proto_bookstore_v1_bookstore_proto_rawDescData
+	return file_bookstore_v1_bookstore_proto_rawDescData
 }
 
-var file_proto_bookstore_v1_bookstore_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_proto_bookstore_v1_bookstore_proto_goTypes = []any{
+var file_bookstore_v1_bookstore_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_bookstore_v1_bookstore_proto_goTypes = []any{
 	(*ListBooksRequest)(nil),  // 0: bookstore.v1.ListBooksRequest
 	(*ListBooksResponse)(nil), // 1: bookstore.v1.ListBooksResponse
 	(*Book)(nil),              // 2: bookstore.v1.Book
 }
-var file_proto_bookstore_v1_bookstore_proto_depIdxs = []int32{
+var file_bookstore_v1_bookstore_proto_depIdxs = []int32{
 	2, // 0: bookstore.v1.ListBooksResponse.books:type_name -> bookstore.v1.Book
 	0, // 1: bookstore.v1.BookstoreService.ListBooks:input_type -> bookstore.v1.ListBooksRequest
 	1, // 2: bookstore.v1.BookstoreService.ListBooks:output_type -> bookstore.v1.ListBooksResponse
@@ -214,26 +214,26 @@ var file_proto_bookstore_v1_bookstore_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_proto_bookstore_v1_bookstore_proto_init() }
-func file_proto_bookstore_v1_bookstore_proto_init() {
-	if File_proto_bookstore_v1_bookstore_proto != nil {
+func init() { file_bookstore_v1_bookstore_proto_init() }
+func file_bookstore_v1_bookstore_proto_init() {
+	if File_bookstore_v1_bookstore_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_bookstore_v1_bookstore_proto_rawDesc), len(file_proto_bookstore_v1_bookstore_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bookstore_v1_bookstore_proto_rawDesc), len(file_bookstore_v1_bookstore_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_bookstore_v1_bookstore_proto_goTypes,
-		DependencyIndexes: file_proto_bookstore_v1_bookstore_proto_depIdxs,
-		MessageInfos:      file_proto_bookstore_v1_bookstore_proto_msgTypes,
+		GoTypes:           file_bookstore_v1_bookstore_proto_goTypes,
+		DependencyIndexes: file_bookstore_v1_bookstore_proto_depIdxs,
+		MessageInfos:      file_bookstore_v1_bookstore_proto_msgTypes,
 	}.Build()
-	File_proto_bookstore_v1_bookstore_proto = out.File
-	file_proto_bookstore_v1_bookstore_proto_goTypes = nil
-	file_proto_bookstore_v1_bookstore_proto_depIdxs = nil
+	File_bookstore_v1_bookstore_proto = out.File
+	file_bookstore_v1_bookstore_proto_goTypes = nil
+	file_bookstore_v1_bookstore_proto_depIdxs = nil
 }

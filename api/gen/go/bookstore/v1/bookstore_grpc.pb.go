@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.0
 // - protoc             (unknown)
-// source: proto/bookstore/v1/bookstore.proto
+// source: bookstore/v1/bookstore.proto
 
 package v1
 
@@ -117,5 +117,5 @@ var BookstoreService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/bookstore/v1/bookstore.proto",
+	Metadata: "bookstore/v1/bookstore.proto",
 }

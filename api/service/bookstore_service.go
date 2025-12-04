@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"connectrpc.com/connect"
-	pb "github.com/icchy-san/bookstore-app/api/gen/go/github.com/icchy-san/bookstore-app/api/gen/go/bookstore/v1"
+	pb "github.com/icchy-san/bookstore-app/api/gen/go/bookstore/v1"
 )
 
 type BookstoreService interface {
