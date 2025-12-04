@@ -3,28 +3,28 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
-	"github.com/icchy-san/bookstore-app/api/gen/go/bookstore/v1/v1connect"
+	"github.com/icchy-san/bookstore-app/api/handler"
+	"github.com/icchy-san/bookstore-app/api/service"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )
 
-type BookstoreServer struct {
-	v1connect.UnimplementedBookstoreServiceHandler
-}
-
 func main() {
-	bookstore := &BookstoreServer{}
+	bookstoreService := service.NewBookstoreService()
 
-	mux := http.NewServeMux()
+	mux, err := handler.NewBookstoreServiceHandler(bookstoreService)
+	if err != nil {
+		panic(err)
+	}
 
-	path, handler := v1connect.NewBookstoreServiceHandler(bookstore)
-	fmt.Println(path)
-	fmt.Println(handler)
-
-	mux.Handle(path, handler)
-	http.ListenAndServe(
+	if listenErr := http.ListenAndServe(
 		"localhost:8080",
 		h2c.NewHandler(mux, &http2.Server{}),
-	)
+	); listenErr != nil {
+		if listenErr != http.ErrServerClosed {
+			fmt.Fprint(os.Stderr, listenErr)
+		}
+	}
 }

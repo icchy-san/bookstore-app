@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	"connectrpc.com/connect"
+	"github.com/bufbuild/connect-go"
 	pb "github.com/icchy-san/bookstore-app/api/gen/go/bookstore/v1"
 )
 
