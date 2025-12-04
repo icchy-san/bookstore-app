@@ -1,0 +1,18 @@
+version: "2"
+
+linters:
+  default: fast
+  enable:
+    - errcheck
+  disable:
+    - depguard
+  settings:
+    misspell:
+      locale: US
+      extra-words:
+        - typo: "iff"
+          correction: "if"
+
+run:
+  tests: false
+  timeout: 1m
