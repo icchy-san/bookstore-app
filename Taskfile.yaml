@@ -1,0 +1,14 @@
+version: 3
+
+tasks:
+  default:
+    desc: List all tasks
+    aliases:
+      - list
+    cmd: task -l
+
+  run:server:
+    desc: Start Go server
+    dir: ./api
+    cmd: go run ./cmd/server/main.go
+
