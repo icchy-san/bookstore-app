@@ -6,6 +6,4 @@ plugins:
   - remote: buf.build/bufbuild/connect-go:v1.10.0
     out: api/gen/go
     opt: paths=source_relative
-  - remote: buf.build/grpc/go:v1.6.0
-    out: api/gen/go
-    opt: paths=source_relative
+
