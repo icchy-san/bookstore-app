@@ -9,20 +9,31 @@ const HomeScreen = () => {
     const port = process.env.EXPO_PUBLIC_PORT;
 
     const [books, setBooks] = useState<Book[]>([]);
+    const [refreshing, setRefreshing] = useState(false);
 
     const client = createClient(BookstoreService, createConnectTransport({
         baseUrl: `http://${host}:${port}`,
     }));
 
-    useEffect(() => {
-        client.listBooks({
-            shelf: "1",
-        }).then((response) => {
+    const fetchBooks = async () => {
+        try {
+            const response = await client.listBooks({
+                shelf: "1", // Dummyなのでこの値で何か変わるということはない。
+            });
             setBooks(response.books);
-            console.log(response);
-        }).catch(err => {
+        } catch (err) {
             console.error("Failed to fetch books", err);
-        });
+        }
+    };
+
+    const onRefresh = async () => {
+        setRefreshing(true);
+        await fetchBooks();
+        setRefreshing(false);
+    };
+
+    useEffect(() => {
+        fetchBooks();
     }, []);
 
     const renderItem: ListRenderItem<Book> = ({ item }) => (
@@ -39,6 +50,8 @@ const HomeScreen = () => {
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
                 contentContainerStyle={styles.listContent}
+                refreshing={refreshing}
+                onRefresh={onRefresh}
             />
         </View>
     );
