@@ -27,8 +27,8 @@ const HomeScreen = () => {
 
     const renderItem: ListRenderItem<Book> = ({ item }) => (
         <View style={styles.itemContainer}>
-            <Text style={styles.title}>{item.name}</Text>
-            <Text style={styles.author}>{item.author}</Text>
+            <Text style={styles.title}>書籍名：{item.name}</Text>
+            <Text style={styles.author}>著者： {item.author}</Text>
         </View>
     );
 
