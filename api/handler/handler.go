@@ -5,6 +5,7 @@ import (
 
 	"github.com/bufbuild/connect-go"
 	"github.com/icchy-san/bookstore-app/api/gen/go/bookstore/v1/v1connect"
+	"github.com/icchy-san/bookstore-app/api/middleware"
 	"github.com/icchy-san/bookstore-app/api/service"
 )
 
@@ -13,6 +14,7 @@ func NewBookstoreServiceHandler(service service.BookstoreService, opts ...connec
 
 	server := NewBookstoreServer(service)
 	path, handler := v1connect.NewBookstoreServiceHandler(server, opts...)
+	handler = middleware.WithCORS(handler)
 	mux.Handle(path, handler)
 
 	return mux, nil

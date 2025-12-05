@@ -11,6 +11,8 @@ require (
 )
 
 require (
+	connectrpc.com/cors v0.1.0 // indirect
+	github.com/rs/cors v1.11.1 // indirect
 	golang.org/x/sys v0.37.0 // indirect
 	golang.org/x/text v0.30.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20251022142026-3a174f9686a8 // indirect

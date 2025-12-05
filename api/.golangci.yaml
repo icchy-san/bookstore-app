@@ -13,6 +13,11 @@ linters:
         - typo: "iff"
           correction: "if"
 
+formatters:
+  enable:
+    - gofmt
+    - goimports
+
 run:
   tests: false
   timeout: 1m
