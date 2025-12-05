@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 
@@ -12,6 +13,16 @@ import (
 )
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	host := os.Getenv("HOST")
+	if host == "" {
+		host = "localhost"
+	}
+
 	bookstoreService := service.NewBookstoreService()
 
 	mux, err := handler.NewBookstoreServiceHandler(bookstoreService)
@@ -19,8 +30,10 @@ func main() {
 		panic(err)
 	}
 
+	log.Printf("Listening on %s:%s\n", host, port)
+
 	if listenErr := http.ListenAndServe(
-		"localhost:8080",
+		fmt.Sprintf("%s:%s", host, port),
 		h2c.NewHandler(mux, &http2.Server{}),
 	); listenErr != nil {
 		if listenErr != http.ErrServerClosed {

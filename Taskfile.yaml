@@ -1,5 +1,8 @@
 version: 3
 
+dotenv:
+  - ".env"
+
 tasks:
   default:
     desc: List all tasks
@@ -10,7 +13,7 @@ tasks:
   run:server:
     desc: Start Go server
     dir: ./api
-    cmd: go run ./cmd/server/main.go
+    cmd: HOST={{.HOST}} go run ./cmd/server/main.go
   run:native:
     desc: Start React Native server
     dir: ./native
