@@ -11,4 +11,12 @@ tasks:
     desc: Start Go server
     dir: ./api
     cmd: go run ./cmd/server/main.go
+  run:native:
+    desc: Start React Native server
+    dir: ./native
+    cmd: pnpm run start
 
+  gen:proto:
+    desc: Generate gRPC stub code
+    dir: ./
+    cmd: buf generate proto
