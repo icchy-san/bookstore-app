@@ -1,25 +1,45 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, FlatList, ListRenderItem } from "react-native";
 import { createClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { BookstoreService } from "@/gen/bookstore/v1/bookstore_pb";
-import { useEffect } from "react";
+import { BookstoreService, Book } from "@/gen/bookstore/v1/bookstore_pb";
+import { useEffect, useState } from "react";
 
 const HomeScreen = () => {
+    const host = process.env.EXPO_PUBLIC_HOST;
+    const port = process.env.EXPO_PUBLIC_PORT;
+
+    const [books, setBooks] = useState<Book[]>([]);
+
     const client = createClient(BookstoreService, createConnectTransport({
-        baseUrl: "http://localhost:8080",
+        baseUrl: `http://${host}:${port}`,
     }));
 
     useEffect(() => {
         client.listBooks({
-            shelf: "shelf1",
+            shelf: "1",
         }).then((response) => {
+            setBooks(response.books);
             console.log(response);
+        }).catch(err => {
+            console.error("Failed to fetch books", err);
         });
     }, []);
 
+    const renderItem: ListRenderItem<Book> = ({ item }) => (
+        <View style={styles.itemContainer}>
+            <Text style={styles.title}>{item.name}</Text>
+            <Text style={styles.author}>{item.author}</Text>
+        </View>
+    );
+
     return (
         <View style={styles.container}>
-            <Text>Home</Text>
+            <FlatList
+                data={books}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+                contentContainerStyle={styles.listContent}
+            />
         </View>
     );
 };
@@ -27,8 +47,24 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#fff',
+    },
+    listContent: {
+        padding: 16,
+    },
+    itemContainer: {
+        padding: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: '#eee',
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    author: {
+        fontSize: 14,
+        color: '#666',
+        marginTop: 4,
     },
 });
 
