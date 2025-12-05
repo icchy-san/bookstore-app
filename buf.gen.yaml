@@ -6,4 +6,8 @@ plugins:
   - remote: buf.build/bufbuild/connect-go:v1.10.0
     out: api/gen/go
     opt: paths=source_relative
-
+  - remote: buf.build/grpc/web:v2.0.2
+    out: native/gen/
+    opt:
+      - mode=grpcweb
+      - import_style=typescript
